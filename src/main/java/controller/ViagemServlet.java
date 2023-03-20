@@ -1,27 +1,28 @@
 package controller;
 
 import jakarta.servlet.RequestDispatcher;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Viagens;
+import model.Viagem;
 import persistence.GenericDao;
-import persistence.IViagensDao;
-import persistence.ViagensDao;
+import persistence.IViagemDao;
+import persistence.ViagemDao;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViagensServlet extends HttpServlet {
+public class ViagemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ViagensServlet() {
+    public ViagemServlet() {
         super();
     }
-
+   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String codigo = request.getParameter("codigo");
 		String onibus = request.getParameter("onibus");
@@ -32,13 +33,13 @@ public class ViagensServlet extends HttpServlet {
 		String destino = request.getParameter("destino");
 		String botao = request.getParameter("botao");
 		
-		Viagens v = new Viagens();
+		Viagem v = new Viagem();
 		
 		GenericDao gDao = new GenericDao();
-		IViagensDao mDao = new ViagensDao(gDao);
+		IViagemDao mDao = new ViagemDao(gDao);
 		String erro = "";
 		String saida = "";
-		List<Viagens> viagens = new ArrayList<Viagens>();
+		List<Viagem> viagens = new ArrayList<Viagem>();
 		
 		try {
 			if (botao.equals("Listar")) {
@@ -46,29 +47,29 @@ public class ViagensServlet extends HttpServlet {
 			}
 			if (botao.equals("Inserir")) {
 				v = valido(codigo, onibus, motorista, hora_saida, hora_chegada, partida, destino, botao);
-				saida = mDao.insereViagens(v);
-				v = new Viagens();
+				saida = mDao.insereViagem(v);
+				v = new Viagem();
 			}
 			if (botao.equals("Atualizar")) {
 				v = valido(codigo, onibus, motorista, hora_saida, hora_chegada, partida, destino, botao);
-				saida = mDao.atualizaViagens(v);
-				v = new Viagens();
+				saida = mDao.atualizaViagem(v);
+				v = new Viagem();
 			}
 			if (botao.equals("Excluir")) {
 				v = valido(codigo, onibus, motorista, hora_saida, hora_chegada, partida, destino, botao);
-				saida = mDao.excluiViagens(v);
-				v = new Viagens();
+				saida = mDao.excluiViagem(v);
+				v = new Viagem();
 			}
 			if (botao.equals("Buscar")) {
 				v = valido(codigo, onibus, motorista, hora_saida, hora_chegada, partida, destino, botao);
-				v = mDao.consultaViagens(v);
+				v = mDao.consultaViagem(v);
 			}
 			
 		} catch(SQLException | ClassNotFoundException | IOException e) {
 			erro = e.getMessage();
 		} finally {
-			RequestDispatcher rd = request.getRequestDispatcher("viagens.jsp");
-			request.setAttribute("viagens", v);
+			RequestDispatcher rd = request.getRequestDispatcher("viagem.jsp");
+			request.setAttribute("viagem", v);
 			request.setAttribute("viagens", viagens);
 			request.setAttribute("erro", erro);
 			request.setAttribute("saida", saida);
@@ -76,8 +77,8 @@ public class ViagensServlet extends HttpServlet {
 		}
 	}
 	
-	private Viagens valido(String codigo, String onibus, String motorista, String hora_saida, String hora_chegada, String partida, String destino, String botao) throws IOException {
-		Viagens v = new Viagens();
+	private Viagem valido(String codigo, String onibus, String motorista, String hora_saida, String hora_chegada, String partida, String destino, String botao) throws IOException {
+		Viagem v = new Viagem();
 		
 		if (botao.equals("Inserir")) {
 			if (codigo.equals("") || onibus.equals("") || motorista.equals("") || hora_saida.equals("") || hora_chegada.equals("") || partida.equals("") || destino.equals("")) {

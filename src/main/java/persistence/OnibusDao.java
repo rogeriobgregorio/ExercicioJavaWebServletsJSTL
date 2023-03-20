@@ -91,8 +91,8 @@ public class OnibusDao implements IOnibusDao {
 	}
 
 	@Override
-	public List<Onibus> consultaOnibus() throws SQLException, ClassNotFoundException {
-		List<Onibus> Onibus = new ArrayList<Onibus>();
+	public List<Onibus> consultaListOnibus() throws SQLException, ClassNotFoundException {
+		List<Onibus> listOnibus = new ArrayList<Onibus>();
 		
 		Connection c = gDao.getConnection();
 		
@@ -107,13 +107,13 @@ public class OnibusDao implements IOnibusDao {
             o.setAno(rs.getInt("ano"));
             o.setDescricao(rs.getString("descricao"));
             
-            Onibus.add(o);
+            listOnibus.add(o);
 		}
 		rs.close();
 		ps.close();
 		c.close();
 		
-		return Onibus;
+		return listOnibus;
 	}
 
 }

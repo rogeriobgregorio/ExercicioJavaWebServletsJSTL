@@ -76,7 +76,7 @@
 	<br />
 	<br />
 	<div align="center">
-		<c:if test="${not empty onibus }">
+		<c:if test="${not empty listOnibus }">
 			<table class="table_round">
 				<thead>
 					<tr>
@@ -87,7 +87,7 @@
 					</tr>	
 				</thead>
 				<tbody>
-					<c:forEach items="${onibus }" var="o">
+					<c:forEach items="${listOnibus }" var="o">
 						<tr>
 							<td><c:out value="${o.placa }"></c:out></td>
 							<td><c:out value="${o.marca }"></c:out></td>

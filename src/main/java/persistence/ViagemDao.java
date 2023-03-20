@@ -9,18 +9,18 @@ import java.util.List;
 
 import model.Motorista;
 import model.Onibus;
-import model.Viagens;
+import model.Viagem;
 
-public class ViagensDao implements IViagensDao {
+public class ViagemDao implements IViagemDao {
 	
 	private GenericDao gDao;
 	
-	public ViagensDao(GenericDao gDao) {
+	public ViagemDao(GenericDao gDao) {
 		this.gDao = gDao;
 	}
 
 	@Override
-	public String insereViagens(Viagens v) throws SQLException, ClassNotFoundException {
+	public String insereViagem(Viagem v) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
 		
 		String sql = "INSERT INTO viagens VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -41,7 +41,7 @@ public class ViagensDao implements IViagensDao {
 	}
 
 	@Override
-	public String atualizaViagens(Viagens v) throws SQLException, ClassNotFoundException {
+	public String atualizaViagem(Viagem v) throws SQLException, ClassNotFoundException {
 		
 		Connection c = gDao.getConnection();
 		
@@ -64,7 +64,7 @@ public class ViagensDao implements IViagensDao {
 	}
 
 	@Override
-	public String excluiViagens(Viagens v) throws SQLException, ClassNotFoundException {
+	public String excluiViagem(Viagem v) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
 		
 		String sql = "DELETE viagens WHERE codigo = ?";
@@ -79,7 +79,7 @@ public class ViagensDao implements IViagensDao {
 	}	
 
 	@Override
-	public Viagens consultaViagens(Viagens v) throws SQLException, ClassNotFoundException {
+	public Viagem consultaViagem(Viagem v) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
 		
 		StringBuffer sql = new StringBuffer();
@@ -121,7 +121,7 @@ public class ViagensDao implements IViagensDao {
 	}
 	
 	@Override
-	public Viagens consultaDescricaoOnibus(Viagens v) throws SQLException, ClassNotFoundException {
+	public Viagem consultaDescricaoOnibus(Viagem v) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
 		
 		StringBuffer sql = new StringBuffer();
@@ -165,7 +165,7 @@ public class ViagensDao implements IViagensDao {
 	}
 
 	@Override
-	public Viagens consultaDescricaoViagem(Viagens v) throws SQLException, ClassNotFoundException {
+	public Viagem consultaDescricaoViagem(Viagem v) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
 		
 		StringBuffer sql = new StringBuffer();
@@ -207,8 +207,8 @@ public class ViagensDao implements IViagensDao {
 	}
 	
 	@Override
-	public List<Viagens> consultaViagens() throws SQLException, ClassNotFoundException {
-		List<Viagens> viagens = new ArrayList<Viagens>();
+	public List<Viagem> consultaViagens() throws SQLException, ClassNotFoundException {
+		List<Viagem> viagens = new ArrayList<Viagem>();
 		
 		Connection c = gDao.getConnection();
 		
@@ -224,7 +224,7 @@ public class ViagensDao implements IViagensDao {
 		PreparedStatement ps = c.prepareStatement(sql.toString());
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
-			Viagens v = new Viagens();
+			Viagem v = new Viagem();
             v.setCodigo(rs.getInt("codigo"));
             
             Onibus o = new Onibus();

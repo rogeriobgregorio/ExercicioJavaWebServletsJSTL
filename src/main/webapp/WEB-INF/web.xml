@@ -26,12 +26,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ViagensServlet</display-name>
-    <servlet-name>ViagensServlet</servlet-name>
-    <servlet-class>controller.ViagensServlet</servlet-class>
+    <display-name>ViagemServlet</display-name>
+    <servlet-name>ViagemServlet</servlet-name>
+    <servlet-class>controller.ViagemServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ViagensServlet</servlet-name>
-    <url-pattern>/viagens</url-pattern>
+    <servlet-name>ViagemServlet</servlet-name>
+    <url-pattern>/viagem</url-pattern>
   </servlet-mapping>
 </web-app>

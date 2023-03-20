@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="./css/styles.css">
-<title>Viagens</title>
+<title>Viagem</title>
 </head>
 <body>
 	<div>
@@ -14,16 +14,16 @@
 	</div>
 	<br />
 	<div align="center" class="container">
-		<form action="viagens" method="post">
+		<form action="viagem" method="post">
 			<p class="title">
-				<b>Viagens</b>
+				<b>Viagem</b>
 			</p>
 			<table>
 				<tr>
 					<td colspan="3">
 						<input class="input_data_id" type="number" min="0"
 							step="1" id="codigo" name="codigo" placeholder="Código"
-							value="<c:out value="${viagens.codigo }"></c:out>">
+							value="<c:out value="${viagem.codigo }"></c:out>">
 					</td>
 					<td>
 						<input type="submit" id="botao" name="botao" value="Buscar">
@@ -32,40 +32,40 @@
 				<tr>
 					<td colspan="4">
 						<input class="input_data" type="text" id="onibus" name="onibus"
-							placeholder="Placa do onibus" value="<c:out value="${viagens.onibus.placa }"></c:out>">
+							placeholder="Placa do onibus" value="<c:out value="${viagem.onibus.placa }"></c:out>">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
 						<input class="input_data_id" type="number" min="0"
 							step="1" id="motorista" name="motorista" placeholder="Código do motorista"
-							value="<c:out value="${viagens.motorista.codigo }"></c:out>">
+							value="<c:out value="${viagem.motorista.codigo }"></c:out>">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
 						<input class="input_data_id" type="number" min="0"
 							step="1" id="hora_saida" name="hora_saida" placeholder="Hora da saida"
-							value="<c:out value="${viagens.hora_saida }"></c:out>">
+							value="<c:out value="${viagem.hora_saida }"></c:out>">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
 						<input class="input_data_id" type="number" min="0"
 							step="1" id="hora_chegada" name="hora_chegada" placeholder="Hora da chegada"
-							value="<c:out value="${viagens.hora_chegada }"></c:out>">
+							value="<c:out value="${viagem.hora_chegada }"></c:out>">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
 						<input class="input_data" type="text" id="partida" name="partida"
-							placeholder="Partida" value="<c:out value="${viagens.partida }"></c:out>">
+							placeholder="Partida" value="<c:out value="${viagem.partida }"></c:out>">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
 						<input class="input_data" type="text" id="destino" name="destino"
-							placeholder="Destino" value="<c:out value="${viagens.destino }"></c:out>">
+							placeholder="Destino" value="<c:out value="${viagem.destino }"></c:out>">
 					</td>
 				</tr>
 				<tr>

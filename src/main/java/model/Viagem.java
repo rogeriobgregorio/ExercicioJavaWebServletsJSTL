@@ -1,6 +1,6 @@
 package model;
 
-public class Viagens {
+public class Viagem {
 	
 	private int codigo;
     private Onibus onibus;
@@ -61,7 +61,7 @@ public class Viagens {
 	
 	@Override
 	public String toString() {
-		return "viagens [codigo=" + codigo + ", onibus=" + onibus + ", motorista=" + motorista + ", hora_saida="
+		return "viagem [codigo=" + codigo + ", onibus=" + onibus + ", motorista=" + motorista + ", hora_saida="
 				+ hora_saida + ", hora_chegada=" + hora_chegada + ", partida=" + partida + ", destino=" + destino + "]";
 	}
     

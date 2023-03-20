@@ -35,11 +35,11 @@ public class OnibusServlet extends HttpServlet {
 		IOnibusDao mDao = new OnibusDao(gDao);
 		String erro = "";
 		String saida = "";
-		List<Onibus> onibus = new ArrayList<Onibus>();
+		List<Onibus> listOnibus = new ArrayList<Onibus>();
 		
 		try {
 			if (botao.equals("Listar")) {
-				onibus = mDao.consultaOnibus();
+				listOnibus = mDao.consultaListOnibus();
 			}
 			if (botao.equals("Inserir")) {
 				o = valido(placa, marca, ano, descricao, botao);
@@ -66,7 +66,7 @@ public class OnibusServlet extends HttpServlet {
 		} finally {
 			RequestDispatcher rd = request.getRequestDispatcher("onibus.jsp");
 			request.setAttribute("onibus", o);
-			request.setAttribute("onibus", onibus);
+			request.setAttribute("onibus", listOnibus);
 			request.setAttribute("erro", erro);
 			request.setAttribute("saida", saida);
 			rd.forward(request, response);

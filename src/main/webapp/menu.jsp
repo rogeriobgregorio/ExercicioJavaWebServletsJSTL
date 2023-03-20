@@ -13,7 +13,7 @@
 			<li><a href="index.jsp">Home</a>
 			<li><a href="motorista.jsp">Motorista</a>
 			<li><a href="onibus.jsp">Onibus</a>
-			<li><a href="viagens.jsp">Viagens</a>
+			<li><a href="viagem.jsp">Viagens</a>
 		</ul>
 	</nav>
 

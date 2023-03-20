@@ -11,6 +11,6 @@ public interface IOnibusDao {
 	public String atualizaOnibus(Onibus o) throws SQLException, ClassNotFoundException; 
 	public String excluiOnibus(Onibus o) throws SQLException, ClassNotFoundException;   
 	public Onibus consultaOnibus(Onibus o) throws SQLException, ClassNotFoundException;
-	public List<Onibus> consultaOnibus() throws SQLException, ClassNotFoundException;  
+	public List<Onibus> consultaListOnibus() throws SQLException, ClassNotFoundException;  
 	
 }
